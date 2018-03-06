@@ -6,6 +6,7 @@ based on Spring Cloud
 
  内部api geteway 优先支持 流量动态路由，灰度发布，统一鉴权，限流....
  
+目前完成了动态路由。
 
  
 #### 后期可能需要做到
