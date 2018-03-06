@@ -1,0 +1,12 @@
+#example
+baidu:
+  path: /baidu/**
+  url: http://www.youku.com
+
+sina:
+  path: /sina/**
+  url: http://www.sina.com
+
+test:
+  path: /test/**
+  serviceId: test

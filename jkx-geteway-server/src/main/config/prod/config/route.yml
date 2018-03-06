@@ -1,0 +1,13 @@
+#example
+
+pushService:
+        path: /pushService/**
+        url: http://localhost:19092
+
+baidu:
+  path: /baidu/**
+  url: http://www.youku.com
+
+sina:
+  path: /sina/**
+  url: http://www.sina.com

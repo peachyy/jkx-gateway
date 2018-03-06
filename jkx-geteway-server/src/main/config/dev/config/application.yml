@@ -1,0 +1,46 @@
+server:
+  port: 8086
+  name: inner-geteway
+management:
+  security:
+    enabled: false
+spring:
+  application:
+    name: ${server.name}
+  cloud:
+    config:
+      discovery:
+        enabled: false
+    inetutils:
+      ignored-interfaces:
+        - docker0 #忽略docker网卡
+        - veth.*  #忽略veth桥接的网卡
+eureka:
+  instance:
+    #使用IP注册
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    registryFetchIntervalSeconds: 30
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:${server.port}/eureka/
+    healthcheck:
+      enabled: true
+
+#如果是JAR外部的 需要使用file:c:/这种形式
+geteway:
+    routeFile: classpath:config/route.yml
+    #whiteListFile: file:c:/cc.txt
+    #routeFile: file:c:/route.yml
+
+logging:
+     config: classpath:config/logback.xml
+ribbon:
+  eureka:
+    enabled: false
+
+test:
+    ribbon:
+       listOfServers: http://www.baidu.com,http://v.baidu.com
